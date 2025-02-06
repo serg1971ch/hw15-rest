@@ -1,4 +1,20 @@
 server:
-  port: 8189
-  servlet:
-    context-path: /app
+  port: 8089
+
+spring:
+  application:
+    name: spring-app
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/myDB
+    username: postgres
+    password: 1234
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+  liquibase:
+    change-log: classpath:/liquibase/changelog-master.yml
