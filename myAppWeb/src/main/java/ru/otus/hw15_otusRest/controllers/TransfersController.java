@@ -18,9 +18,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/transfers")
 public class TransfersController {
-    private final TransfersService transfersService;
+    private final TransfersService transfersService = null;
 
-    private static final Function<Transfer, TransferDto> ENTITY_TO_DTO = t -> new TransferDto(t.getId(), t.getClientId(), t.getTargetClientId(), t.getSourceAccount(), t.getTargetAccount(), t.getMessage(), t.getAmount());
+    private static final Function<Transfer, TransferDto> ENTITY_TO_DTO = t -> new TransferDto(t.getId(), t.getAccountSource(), t.getAccountTarget(), t.getMessage(), t.getAmount());
 
     @GetMapping
     public TransfersPageDto getAllTransfers(@RequestHeader(name = "client-id") String clientId) {

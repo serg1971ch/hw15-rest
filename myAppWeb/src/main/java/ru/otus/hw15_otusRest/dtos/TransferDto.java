@@ -1,7 +1,9 @@
 package ru.otus.hw15_otusRest.dtos;
 
+import ru.otus.hw15_otusRest.entities.Account;
+
 public record TransferDto(String id,
-                          String clientId, String targetClientId,
-                          String sourceAccount, String targetAccount,
+                          Account accountSource,
+                          Account accountTarget,
                           String message, int amount) {
 }

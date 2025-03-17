@@ -1,16 +1,10 @@
 package ru.otus.hw15_otusRest.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "transfers")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transfer {
@@ -18,21 +12,55 @@ public class Transfer {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "client_id")
-    private String clientId;
+    @OneToOne
+    private Account accountSource;
 
-    @Column(name = "target_client_id")
-    private String targetClientId;
-
-    @Column(name = "source_account")
-    private String sourceAccount;
-
-    @Column(name = "target_account")
-    private String targetAccount;
+    @OneToOne
+    private Account  accountTarget;
 
     @Column(name = "message")
     private String message;
 
     @Column(name = "amount")
     private int amount;
+
+    public Account getAccountSource() {
+        return accountSource;
+    }
+
+    public void setAccountSource(Account accountSource) {
+        this.accountSource = accountSource;
+    }
+
+    public Account getAccountTarget() {
+        return accountTarget;
+    }
+
+    public void setAccountTarget(Account accountTarget) {
+        this.accountTarget = accountTarget;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

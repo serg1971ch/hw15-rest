@@ -28,7 +28,9 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.liquibase:liquibase-core")
 	compileOnly("org.projectlombok:lombok")
-	runtimeOnly("org.postgresql:postgresql")
+	// https://mvnrepository.com/artifact/com.h2database/h2
+	testImplementation("com.h2database:h2:2.2.224")
+
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")

@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TransfersService {
-    private final TransfersRepository transfersRepository;
+    private final TransfersRepository transfersRepository = null;
 
     public Optional<Transfer> getTransferById(String id, String clientId) {
         return transfersRepository.findByIdAndClientId(id, clientId);
@@ -33,12 +33,12 @@ public class TransfersService {
 
     private void validateExecuteTransferDtoRq(ExecuteTransferDtoRq executeTransferDtoRq) {
         List<ValidationFieldError> errors = new ArrayList<>();
-        if (executeTransferDtoRq.sourceAccount().length() != 12) {
-            errors.add(new ValidationFieldError("sourceAccount", "Длина поля счет отправителя должна составлять 12 символов"));
-        }
-        if (executeTransferDtoRq.targetAccount().length() != 12) {
-            errors.add(new ValidationFieldError("targetAccount", "Длина поля счет получателя должна составлять 12 символов"));
-        }
+//        if (executeTransferDtoRq.sourceAccount().length() != 12) {
+//            errors.add(new ValidationFieldError("sourceAccount", "Длина поля счет отправителя должна составлять 12 символов"));
+//        }
+//        if (executeTransferDtoRq.targetAccount().length() != 12) {
+//            errors.add(new ValidationFieldError("targetAccount", "Длина поля счет получателя должна составлять 12 символов"));
+//        }
         if (executeTransferDtoRq.amount() <= 0) {
             errors.add(new ValidationFieldError("amount", "Сумма перевода должна быть больше 0"));
         }

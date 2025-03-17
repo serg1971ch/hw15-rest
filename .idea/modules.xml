@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/hw15-rest.iml" filepath="$PROJECT_DIR$/.idea/hw15-rest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/myAppWeb.main.iml" filepath="$PROJECT_DIR$/.idea/modules/myAppWeb.main.iml" />
     </modules>
   </component>
 </project>
